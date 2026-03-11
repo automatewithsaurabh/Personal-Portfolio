@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Credits Scene</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Container for rolling text */
+        .credits-container {
+            width: 90%;
+            max-width: 800px;
+            position: absolute;
+            top: 100%;
+            /* Start at the bottom of the screen */
+            text-align: center;
+            animation: rollUp 15s linear forwards;
+        }
+
+        .role {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .name {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin-bottom: 5rem;
+            letter-spacing: 1px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #888;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .cast-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem 3rem;
+            max-width: 600px;
+            margin: 0 auto 5rem auto;
+            align-items: center;
+        }
+
+        .cast-actor {
+            text-align: right;
+            font-size: 1.6rem;
+            font-weight: 500;
+        }
+
+        .cast-character {
+            text-align: left;
+            font-size: 1.4rem;
+            color: #bbb;
+        }
+
+        @keyframes rollUp {
+            0% {
+                top: 100%;
+                transform: translateY(0);
+            }
+
+            100% {
+                top: 0;
+                transform: translateY(-120%);
+                /* Move slightly beyond the top to be completely hidden */
+            }
+        }
+
+        /* Final Slide */
+        .final-slide {
+            opacity: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 1000px;
+            animation: fadeIn 3s ease-in-out forwards;
+            animation-delay: 15.5s;
+            /* Fade in right after roll finishes */
+        }
+
+        .final-title {
+            font-size: 3rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            background: linear-gradient(to right, #fff, #aaa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .final-text {
+            font-size: 1.6rem;
+            color: #aaa;
+            line-height: 1.8;
+            margin-bottom: 3.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subscribe-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .subscribe-item {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .dot {
+            color: #555;
+            font-size: 1.5rem;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Rolling Credits -->
+    <div class="credits-container">
+
+        <div class="role">Written, Directed, Edited by</div>
+        <div class="name">Sanjay Jangid</div>
+
+        <div class="section-title">Cast</div>
+        <div class="cast-grid">
+            <div class="cast-actor">Ashish</div>
+            <div class="cast-character">as Saurabh Ahire</div>
+
+            <div class="cast-actor">Divya</div>
+            <div class="cast-character">as Divya Bachhav</div>
+
+            <div class="cast-actor">Veer</div>
+            <div class="cast-character">as Om Chavan</div>
+        </div>
+
+        <div class="section-title">Special Thanks</div>
+        <div class="name">Deven Bhosle</div>
+
+    </div>
+
+    <!-- Final Slide -->
+    <div class="final-slide">
+        <div class="final-title">Thank you for watching</div>
+        <div class="final-text">
+            It was our first project and there's a lot of new projects to come...
+        </div>
+        <div class="subscribe-container">
+            <span class="subscribe-item">Like</span>
+            <span class="dot">&bull;</span>
+            <span class="subscribe-item">Share</span>
+            <span class="dot">&bull;</span>
+            <span class="subscribe-item">Subscribe</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
