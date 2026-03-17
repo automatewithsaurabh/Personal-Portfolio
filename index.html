@@ -996,136 +996,113 @@
       font-size: 13px;
       color: var(--muted);
       margin-top: -32px;
-      margin-bottom: 48px;
+      margin-bottom: 0;
       max-width: 560px;
     }
 
     .projects-grid {
       display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
+      margin-top: 64px;
     }
 
-    /* Featured card */
-    .project-featured {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      border: 1px solid var(--border);
-      background: var(--ink);
-      border-radius: 0;
-      overflow: hidden;
-      min-height: 360px;
-    }
-
-    .project-visual {
-      background: #0e0e0e;
+    .proj-card {
+      background: var(--surface);
+      padding: 40px 36px;
       display: flex;
-      align-items: center;
-      justify-content: center;
+      flex-direction: column;
       position: relative;
-      padding: 0;
-      overflow: hidden;
+      border-left: 3px solid transparent;
+      transition: background 0.2s, border-left-color 0.2s;
     }
 
-    .project-visual-ghost {
-      font-family: var(--ff-display);
-      font-size: clamp(48px, 6vw, 80px);
-      letter-spacing: 0.04em;
-      line-height: 0.9;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.08);
-      text-align: center;
-      user-select: none;
+    .proj-card:hover {
+      background: #f5f1e8;
+      border-left-color: var(--red);
     }
 
-    .project-live-badge {
-      position: absolute;
-      top: 20px;
-      right: 20px;
+    .proj-card.websites {
+      background: var(--bg-alt);
+    }
+
+    .proj-card.live {
+      border-top: 3px solid var(--red);
+    }
+
+    .live-flag {
+      font-family: var(--ff-mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .proj-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       font-family: var(--ff-mono);
       font-size: 10px;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #fff;
-      background: var(--red);
-      border: 1px solid var(--red);
-      padding: 4px 10px;
-      border-radius: 0;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .project-live-badge .blink {
-      width: 5px;
-      height: 5px;
-      background: #fff;
-      border-radius: 50%;
-      animation: blink 1.4s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.2;
-      }
-    }
-
-    .project-body {
-      background: var(--surface);
-      padding: 40px;
-      display: flex;
-      flex-direction: column;
-      border: 1px solid var(--border);
-    }
-
-    .project-num {
-      font-family: var(--ff-display);
-      font-size: 13px;
-      letter-spacing: 0.12em;
       color: var(--subtle);
-      margin-bottom: 12px;
-    }
-
-    .project-title {
-      font-family: var(--ff-display);
-      font-size: clamp(28px, 3vw, 40px);
-      letter-spacing: 0.02em;
-      color: var(--ink);
-      line-height: 0.95;
       margin-bottom: 16px;
     }
 
-    .project-desc {
+    .proj-name {
+      font-family: var(--ff-display);
+      font-size: 52px;
+      letter-spacing: 0.02em;
+      line-height: 0.92;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+
+    .proj-tagline {
+      font-family: var(--ff-serif);
+      font-style: italic;
+      font-size: 14px;
+      color: var(--subtle);
+      margin-bottom: 20px;
+    }
+
+    .proj-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 16px;
+    }
+
+    .proj-desc {
       font-family: var(--ff-mono);
-      font-size: 13px;
+      font-size: 12px;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.8;
       margin-bottom: 24px;
       flex: 1;
     }
 
-    .project-kpis {
+    .proj-kpis {
       display: flex;
-      gap: 28px;
-      margin-bottom: 28px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
+      gap: 32px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
     }
 
-    .kpi-num {
+    .kpi-val {
       font-family: var(--ff-display);
-      font-size: 28px;
+      font-size: 32px;
+      font-weight: 400;
+      letter-spacing: 1px;
       color: var(--ink);
-      display: block;
       line-height: 1;
     }
 
-    .kpi-num.accent {
+    .kpi-val.red {
       color: var(--red);
     }
 
@@ -1133,202 +1110,19 @@
       font-family: var(--ff-mono);
       font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
+      letter-spacing: 1px;
       color: var(--subtle);
       margin-top: 4px;
     }
 
-    .project-btns {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .btn-sm-black {
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--surface);
-      background: var(--ink);
-      border: 1px solid var(--ink);
-      padding: 10px 18px;
-      border-radius: 0;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .btn-sm-black:hover {
-      background: var(--red);
-      border-color: var(--red);
-    }
-
-    .btn-sm-outline {
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: var(--ink);
-      background: transparent;
-      border: 1px solid var(--border-b);
-      padding: 10px 18px;
-      border-radius: 0;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .btn-sm-outline:hover {
-      border-color: var(--red);
-      color: var(--red);
-    }
-
-    /* Smaller project cards */
-    .projects-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 2px;
-    }
-
-    .project-card-sm {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      padding: 32px;
-      border-radius: 0;
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card-sm::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--red);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card-sm:hover::after {
-      transform: scaleX(1);
-    }
-
-    .card-visual-sm {
-      background: #0e0e0e;
-      height: 300px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-visual-ghost {
-      font-family: var(--ff-display);
-      font-size: 52px;
-      color: transparent;
-      -webkit-text-stroke: 1px rgba(255, 255, 255, 0.07);
-      letter-spacing: 0.04em;
-      user-select: none;
-    }
-
-    /* Stack chip panels */
-    .proj-logo-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .card-visual-sm .proj-logo-img {
-      object-fit: contain;
-    }
-
-    .proj-stack-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-      align-items: center;
-      padding: 32px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .stack-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      padding: 6px 14px;
-      font-family: var(--ff-mono);
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.5);
-      border-radius: 0;
-      transition: all 0.2s;
-    }
-
-    .stack-chip .dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* Brighten all chips when hovering the panel */
-    .project-visual:hover .stack-chip,
-    .card-visual-sm:hover .stack-chip {
-      color: rgba(255, 255, 255, 0.9);
-      border-color: rgba(255, 255, 255, 0.3);
-    }
-
-    /* Ghost text behind chips — absolute, very low opacity */
-    .project-visual .project-visual-ghost {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .card-visual-sm .card-visual-ghost {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      opacity: 0.04;
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    .project-tagline {
-      font-family: var(--ff-serif);
-      font-style: italic;
-      font-size: 15px;
-      color: var(--subtle);
-      margin-bottom: 16px;
-      margin-top: -8px;
-    }
-
-    .project-tags {
+    .proj-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 6px;
       margin-bottom: 24px;
     }
 
-    .project-tag {
+    .proj-tag {
       font-family: var(--ff-mono);
       font-size: 10px;
       letter-spacing: 0.1em;
@@ -1337,6 +1131,54 @@
       border: 1px solid var(--border-b);
       padding: 4px 8px;
       border-radius: 0;
+    }
+
+    .proj-btn {
+      font-family: var(--ff-mono);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 12px 18px;
+      border-radius: 0;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      display: block;
+      text-align: center;
+      width: 100%;
+    }
+
+    .proj-btn.solid {
+      background: var(--ink);
+      color: var(--surface);
+    }
+
+    .proj-btn.solid:hover {
+      background: var(--red);
+      color: #fff;
+    }
+
+    .proj-btn.outline {
+      border: 1px solid var(--border-b);
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .proj-btn.outline:hover {
+      color: var(--ink);
+      border-color: var(--ink);
+    }
+
+    @media (max-width: 1100px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* â”€â”€â”€ CONTACT SECTION â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
@@ -1595,18 +1437,6 @@
         gap: 40px;
       }
 
-      .project-featured {
-        grid-template-columns: 1fr;
-      }
-
-      .project-visual {
-        display: none;
-      }
-
-      .projects-row {
-        grid-template-columns: 1fr;
-      }
-
       .exp-layout {
         grid-template-columns: 1fr;
         gap: 40px;
@@ -1638,10 +1468,6 @@
 
       .chips-grid {
         grid-template-columns: repeat(2, 1fr);
-      }
-
-      .project-btns {
-        flex-direction: column;
       }
 
       .contact-btns {
@@ -1887,121 +1713,133 @@
   </section>
 
   <!-- â”€â”€â”€ PROJECTS â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ -->
-  <section id="projects" aria-labelledby="projects-headline">
-    <div class="section-label reveal">Work</div>
-    <h2 class="section-headline reveal" id="projects-headline">BUILT. DEPLOYED.<br>ACTUALLY LIVE.</h2>
-    <p class="projects-intro reveal">No "coming soon." No "in progress." Only things that exist and work.</p>
+  <section id=”projects” aria-labelledby=”projects-headline”>
+    <div class=”section-label reveal”>Work</div>
+    <h2 class=”section-headline reveal” id=”projects-headline”>BUILT. DEPLOYED.<br><span style=”font-family:var(--ff-serif);font-style:italic;color:var(--red);”>Actually Live.</span></h2>
+    <p class=”projects-intro reveal”>No “coming soon.” No “in progress.” Only things that exist and work.</p>
 
-    <div class="projects-grid">
+    <div class=”projects-grid”>
 
-      <!-- Card 1: TARKK AI — Featured, full width -->
-      <div class="project-featured reveal">
-        <div class="project-visual">
-          <div class="project-live-badge"><span class="blink"></span>LIVE</div>
-          <img class="proj-logo-img" src="TARKK LOGO.PNG" alt="TARKK AI logo" />
+      <!-- Card 1: TARKK AI -->
+      <div class=”proj-card live reveal”>
+        <div class=”live-flag”>&#9679; LIVE</div>
+        <div class=”proj-meta”>
+          <span>01</span>
+          <span>VIBE DEV</span>
         </div>
-        <div class="project-body">
-          <div class="project-num">01 &mdash; FEATURED</div>
-          <h3 class="project-title">TARKK AI</h3>
-          <p class="project-tagline">For builders who think, not type.</p>
-          <p class="project-desc">
-            Describe what you want to build in plain English. TARKK outputs the exact no-code and AI stack to build it &mdash; tools, how they connect, build time estimate, and a weekend execution plan. Built by a vibe coder, for vibe coders.
-          </p>
-          <div class="project-kpis">
-            <div>
-              <span class="kpi-num accent">&lt;2min</span>
-              <div class="kpi-label">From idea to stack</div>
-            </div>
-            <div>
-              <span class="kpi-num">FREE</span>
-              <div class="kpi-label">No signup needed</div>
-            </div>
+        <div class=”proj-name”>TARKK AI</div>
+        <div class=”proj-tagline”>For builders who think, not type.</div>
+        <div class=”proj-divider”></div>
+        <p class=”proj-desc”>Describe what you want to build in plain English. TARKK outputs the exact no-code and AI stack &mdash; tools, connections, build time, and a weekend execution plan.</p>
+        <div class=”proj-kpis”>
+          <div>
+            <div class=”kpi-val red”>&lt;2MIN</div>
+            <div class=”kpi-label”>FROM IDEA TO STACK</div>
           </div>
-          <div class="project-tags">
-            <span class="project-tag">Claude API</span>
-            <span class="project-tag">Cursor</span>
-            <span class="project-tag">Antigravity</span>
-            <span class="project-tag">Vibe Dev</span>
-          </div>
-          <div class="project-btns">
-            <a class="btn-sm-black" href="#">LIVE DEMO &rarr;</a>
-            <a class="btn-sm-outline" href="#">WATCH LOOM</a>
+          <div>
+            <div class=”kpi-val”>FREE</div>
+            <div class=”kpi-label”>NO SIGNUP NEEDED</div>
           </div>
         </div>
+        <div class=”proj-tags”>
+          <span class=”proj-tag”>CLAUDE API</span>
+          <span class=”proj-tag”>CURSOR</span>
+          <span class=”proj-tag”>ANTIGRAVITY</span>
+          <span class=”proj-tag”>VERCEL</span>
+        </div>
+        <a class=”proj-btn solid” href=”#”>LIVE DEMO &rarr;</a>
+        <a class=”proj-btn outline” href=”#”>WATCH LOOM</a>
       </div>
 
-      <!-- Cards 2 & 3: VAAH + SHODH — side by side -->
-      <div class="projects-row">
-
-        <!-- Card 2: VAAH AI -->
-        <div class="project-card-sm reveal">
-          <div class="card-visual-sm" style="background:#0d1018;">
-            <div class="project-live-badge" style="position:absolute;top:12px;right:12px;z-index:2;background:#333;border-color:#333;">COMING SOON</div>
-            <img class="proj-logo-img" src="VAAH LOGO.PNG" alt="VAAH AI logo" />
+      <!-- Card 2: VAAH AI -->
+      <div class=”proj-card reveal” style=”transition-delay:0.05s”>
+        <div class=”proj-meta”>
+          <span>02</span>
+          <span>GTM + AI</span>
+        </div>
+        <div class=”proj-name”>VAAH AI</div>
+        <div class=”proj-tagline”>Your outbound pipeline, built in 60 seconds.</div>
+        <div class=”proj-divider”></div>
+        <p class=”proj-desc”>Describe your product and target market. VAAH outputs a complete pipeline kit &mdash; ICP, target job titles, 3-step cold email sequence, and a LinkedIn opener. Zero fluff.</p>
+        <div class=”proj-kpis”>
+          <div>
+            <div class=”kpi-val red”>60S</div>
+            <div class=”kpi-label”>PIPELINE GENERATED</div>
           </div>
-          <div class="project-num">02 &mdash; GTM + AI</div>
-          <h3 class="project-title" style="font-size:clamp(22px,3vw,32px);margin-bottom:8px;">VAAH AI</h3>
-          <p class="project-tagline" style="font-size:14px;margin-bottom:12px;">Your outbound pipeline, built in 60 seconds.</p>
-          <p class="project-desc" style="font-size:12px;flex:1;">
-            Describe your product and target market. VAAH outputs a complete pipeline kit &mdash; ICP, target job titles, 3-step cold email sequence, and a LinkedIn opener. Ready to deploy, zero fluff.
-          </p>
-          <div class="project-kpis" style="margin-bottom:16px;">
-            <div>
-              <span class="kpi-num accent">60s</span>
-              <div class="kpi-label">Full pipeline generated</div>
-            </div>
-            <div>
-              <span class="kpi-num">3-step</span>
-              <div class="kpi-label">Email sequence included</div>
-            </div>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">Claude API</span>
-            <span class="project-tag">GTM</span>
-            <span class="project-tag">Outbound</span>
-            <span class="project-tag">Pipelines</span>
-          </div>
-          <div class="project-btns">
-            <a class="btn-sm-black" href="#">LIVE DEMO &rarr;</a>
-            <a class="btn-sm-outline" href="#">CASE STUDY</a>
+          <div>
+            <div class=”kpi-val”>3-STEP</div>
+            <div class=”kpi-label”>EMAIL SEQUENCE</div>
           </div>
         </div>
-
-        <!-- Card 3: SHODH AI -->
-        <div class="project-card-sm reveal" style="transition-delay:0.08s">
-          <div class="card-visual-sm" style="background:#131228;">
-            <div class="project-live-badge" style="position:absolute;top:12px;right:12px;z-index:2;background:#333;border-color:#333;">COMING SOON</div>
-            <img class="proj-logo-img" src="SHODH LOGO.PNG" alt="SHODH AI logo" />
-          </div>
-          <div class="project-num">03 &mdash; AI AGENT</div>
-          <h3 class="project-title" style="font-size:clamp(22px,3vw,32px);margin-bottom:8px;">SHODH AI</h3>
-          <p class="project-tagline" style="font-size:14px;margin-bottom:12px;">Research anyone. In 15 seconds.</p>
-          <p class="project-desc" style="font-size:12px;flex:1;">
-            Input a name and company. SHODH autonomously runs 4 sequential research tasks &mdash; role, recent activity, industry pain point, personalized opener &mdash; and delivers a hyper-relevant outreach line. No prompting. No babysitting.
-          </p>
-          <div class="project-kpis" style="margin-bottom:16px;">
-            <div>
-              <span class="kpi-num accent">15s</span>
-              <div class="kpi-label">Full research cycle</div>
-            </div>
-            <div>
-              <span class="kpi-num">4-step</span>
-              <div class="kpi-label">Autonomous agent chain</div>
-            </div>
-          </div>
-          <div class="project-tags">
-            <span class="project-tag">Claude API</span>
-            <span class="project-tag">AI Agent</span>
-            <span class="project-tag">Multi-step</span>
-            <span class="project-tag">RAG</span>
-          </div>
-          <div class="project-btns">
-            <a class="btn-sm-black" href="#">LIVE DEMO &rarr;</a>
-            <a class="btn-sm-outline" href="#">WATCH LOOM</a>
-          </div>
+        <div class=”proj-tags”>
+          <span class=”proj-tag”>CLAUDE API</span>
+          <span class=”proj-tag”>GTM</span>
+          <span class=”proj-tag”>OUTBOUND</span>
+          <span class=”proj-tag”>PIPELINES</span>
         </div>
-
+        <a class=”proj-btn solid” href=”#”>LIVE DEMO &rarr;</a>
+        <a class=”proj-btn outline” href=”#”>CASE STUDY</a>
       </div>
+
+      <!-- Card 3: SHODH AI -->
+      <div class=”proj-card reveal” style=”transition-delay:0.10s”>
+        <div class=”proj-meta”>
+          <span>03</span>
+          <span>AI AGENT</span>
+        </div>
+        <div class=”proj-name”>SHODH AI</div>
+        <div class=”proj-tagline”>Research anyone. In 15 seconds.</div>
+        <div class=”proj-divider”></div>
+        <p class=”proj-desc”>Input a name and company. SHODH autonomously runs 4 sequential research tasks and delivers a hyper-relevant personalized outreach line. No prompting. No babysitting.</p>
+        <div class=”proj-kpis”>
+          <div>
+            <div class=”kpi-val red”>15S</div>
+            <div class=”kpi-label”>FULL RESEARCH CYCLE</div>
+          </div>
+          <div>
+            <div class=”kpi-val”>4-STEP</div>
+            <div class=”kpi-label”>AUTONOMOUS CHAIN</div>
+          </div>
+        </div>
+        <div class=”proj-tags”>
+          <span class=”proj-tag”>CLAUDE API</span>
+          <span class=”proj-tag”>RAG</span>
+          <span class=”proj-tag”>MULTI-STEP</span>
+          <span class=”proj-tag”>AGENT</span>
+        </div>
+        <a class=”proj-btn solid” href=”#”>LIVE DEMO &rarr;</a>
+        <a class=”proj-btn outline” href=”#”>WATCH LOOM</a>
+      </div>
+
+      <!-- Card 4: WEBSITES -->
+      <div class=”proj-card websites reveal” style=”transition-delay:0.15s;border-top:3px solid rgba(0,0,0,0.15);”>
+        <div class=”proj-meta”>
+          <span>04</span>
+          <span>WEB DESIGN</span>
+        </div>
+        <div class=”proj-name”>WEBSITES</div>
+        <div class=”proj-tagline”>Designed to convert. Built to impress.</div>
+        <div class=”proj-divider”></div>
+        <p class=”proj-desc”>A collection of visually premium websites built using the Antigravity workflow &mdash; landing pages, SaaS sites, and brand portfolios. Each one designed, built, and deployed.</p>
+        <div class=”proj-kpis”>
+          <div>
+            <div class=”kpi-val”>5+</div>
+            <div class=”kpi-label”>SITES BUILT</div>
+          </div>
+          <div>
+            <div class=”kpi-val”>&lt;48H</div>
+            <div class=”kpi-label”>AVG BUILD TIME</div>
+          </div>
+        </div>
+        <div class=”proj-tags”>
+          <span class=”proj-tag”>ANTIGRAVITY</span>
+          <span class=”proj-tag”>WEBFLOW</span>
+          <span class=”proj-tag”>CURSOR</span>
+          <span class=”proj-tag”>FRAMER</span>
+        </div>
+        <a class=”proj-btn solid” href=”#web-portfolio”>VIEW PORTFOLIO &rarr;</a>
+      </div>
+
     </div>
   </section>
 
@@ -2248,7 +2086,7 @@
       requestAnimationFrame(animRing);
     })();
 
-    const interactives = document.querySelectorAll('a, button, .skill-card, .project-card-sm');
+    const interactives = document.querySelectorAll('a, button, .skill-card, .proj-card');
     interactives.forEach(el => {
       el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
       el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
