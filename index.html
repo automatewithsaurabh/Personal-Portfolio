@@ -501,10 +501,7 @@
     }
 
     .exp-layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 56px;
-      align-items: start;
+      display: block;
     }
 
     .exp-timeline {
@@ -610,57 +607,6 @@
       background: var(--border);
     }
 
-    .exp-stats-sidebar {
-      position: relative;
-    }
-
-    .exp-stats-panel {
-      position: sticky;
-      top: 100px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 0;
-    }
-
-    .esp-label {
-      font-family: var(--ff-mono);
-      font-size: 10px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--subtle);
-      padding: 20px 24px 16px;
-    }
-
-    .esp-divider {
-      width: 100%;
-      height: 1px;
-      background: var(--border);
-    }
-
-    .esp-stat {
-      padding: 20px 24px;
-    }
-
-    .esp-num {
-      font-family: var(--ff-display);
-      font-size: 48px;
-      color: var(--ink);
-      display: block;
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .esp-num.accent {
-      color: var(--red);
-    }
-
-    .esp-desc {
-      font-family: var(--ff-mono);
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--subtle);
-    }
 
     /* â"€â"€â"€ CONTACT PANEL â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€â"€ */
     .contact-layout {
@@ -1437,14 +1383,6 @@
         gap: 40px;
       }
 
-      .exp-layout {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .exp-stats-panel {
-        position: static;
-      }
 
       .contact-layout {
         grid-template-columns: 1fr;
@@ -1946,37 +1884,6 @@
           </div>
         </div>
 
-        <!-- Sticky numbers panel -->
-        <div class="exp-stats-sidebar">
-          <div class="exp-stats-panel reveal" style="transition-delay:0.08s">
-            <div class="esp-label">By the numbers</div>
-            <div class="esp-divider"></div>
-            <div class="esp-stat" style="padding:16px 24px;">
-              <span class="esp-num">4</span>
-              <span class="esp-desc">Roles shipped</span>
-            </div>
-            <div class="esp-divider"></div>
-            <div class="esp-stat" style="padding:16px 24px;">
-              <span class="esp-num">2+</span>
-              <span class="esp-desc">Years building</span>
-            </div>
-            <div class="esp-divider"></div>
-            <div class="esp-stat" style="padding:16px 24px;">
-              <span class="esp-num">50+</span>
-              <span class="esp-desc">People led</span>
-            </div>
-            <div class="esp-divider"></div>
-            <div class="esp-stat" style="padding:16px 24px;">
-              <span class="esp-num accent">1</span>
-              <span class="esp-desc">Founding eng position</span>
-            </div>
-            <div class="esp-divider"></div>
-            <div class="esp-stat" style="padding:16px 24px;">
-              <span class="esp-num">2+</span>
-              <span class="esp-desc">Years creating</span>
-            </div>
-          </div>
-        </div>
 
       </div><!-- /exp-layout -->
   </section>
